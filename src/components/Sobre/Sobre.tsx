@@ -6,7 +6,15 @@ import {
   SobreButton
 } from './Sobre.styles';
 
-const Sobre = () => (
+const Sobre = () => {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '5511949188851';
+    const message = 'Olá! Gostaria de criar um site profissional como os seus.';
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
+  return (
   <SobreSection id="sobre">
     <SobreTitle>Por trás dos projetos</SobreTitle>
     <SobreTexto>
@@ -15,8 +23,9 @@ const Sobre = () => (
       Se você busca um site que realmente faça a diferença no seu negócio.
     </SobreTexto>
     <SobreConvite>Vamos conversar.</SobreConvite>
-    <SobreButton>Iniciar meu projeto!</SobreButton>
+    <SobreButton onClick={handleWhatsAppClick}>Iniciar meu projeto!</SobreButton>
   </SobreSection>
 );
+};
 
 export default Sobre;
